@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="container">
+    <header class="header">
+        <div class="logo">NetGusFlix</div>
+        <nav class="nav">
+            <a href="">Home</a>
+            <a href="">Tv Shows</a>
+            <a href="">Movies</a>
+            <a href="">New & Popular</a>
+            <a href="">My list</a>
+        </nav>
+
+        <div class="nav2">
+            <a href="#">search</a>
+            <a href="#">notification</a>
+            <a href="#">profile logo</a>
+        </div>
+
+    </header>
+
+    <div class="filmes">
+    <main class="filme-titulo">
+        <img src="img/cover_sense8.png" alt="">
+        <p>filme grandao vai aqui</p>
+    </main>
+
+    <div class="filme-lista">
+        
+        <section class="caterogia">
+            <h4>top 10</h4>
+            <section class="carrosel">
+                    <div class="item"><img src="img/small/small_atlanta.png" alt=""></div>
+                    <div class="item"><img src="img/small/small_brooklyn99.png" alt=""></div>
+                    <div class="item"><img src="img/small/small_mind_hunter.png" alt=""></div>
+                    <div class="item"><img src="img/small/small_stranger_things.png" alt=""></div>
+                    <div class="item"><img src="img/small/small_irmao_do_jorel.png" alt=""></div>
+            </section>
+        </section>
+
+
+
+    </div>
+</div>
+
+    <footer class="footer">
+        <div class="redes-sociais">
+        <ul>
+            <li>facebook</li>
+            <li>instagram</li>
+            <li>tweeter</li>
+            <li>youtube</li>
+        </ul>
+        </div>
+
+    <div class="info">
+        <ul>
+            <li>Audio Subtitles</li>
+            <li>Audio Description</li>
+            <li>Help center</li>
+            <li>Gift Cards</li>
+            <li>media center</li>
+            <li>Investor Relations</li>
+            <li>Jobs</li>
+            <li>Terms of use</li>
+            <li>privacy</li>
+            <li>Legal Notices</li>
+            <li>Cookie Preferences</li>
+            <li>Corporate information</li>
+            <li>Contact us</li>
+        </ul>
+    </div>
+    </footer>
+</div>
+</body>
+<script>
+
+    let lista_imagens_filmes =[
+       "small_kobra_kai.png",
+       "small_sex_education.png",
+       "small_arrival.png",
+       "small_outlander.png",
+       "small_irmao_do_jorel.png",
+       "small_squid_game.png",
+       "small_peaky_blinders.png",
+       "small_stranger_things.png",
+       "small_brooklyn99.png",
+       "small_xaw_xawk_redemption.png",
+       "small_breaking_bad.png",
+       "small_mind_hunter.png",
+       "small_orange_new_black.png",
+       "small_avatar.png",
+       "small_narcos.png",
+       "small_estomago.png",
+       "small_atypical.png",
+       "small_star_trek.png",
+       "small_bojack.png",
+       "small_sponge_bob.png",
+       "small_the_one_handred.png",
+       "small_lupin.png",
+       "small_russian_doll.png",
+       "small_black_mirror.png",
+       "small_five_juanas.png",
+       "small_dirk_gently.png",
+       "small_sweeth_tooth.png",
+       "small_atlanta.png",
+       "small_midnight_gospel.png",
+       "small_love_is_blind.png",
+       "small_the_witcher.png"
+    ];
+    let lista_categorias = ["Comedia","Sci-Fi","Drama"];
+
+    const randomUnique = (range, count) => {
+    let nums = new Set();
+    while (nums.size < count) {
+        nums.add(Math.floor(Math.random() * (range - 1 + 1) + 1));
+    }
+    return [...nums];
+    }
+
+    let mo_rand = randomUnique(lista_imagens_filmes.length, lista_imagens_filmes.length)
+    console.log(`${mo_rand}`);//
+    
+
+    console.log(`${lista_categorias}`);//
+    console.log(`${lista_imagens_filmes}`);//
+
+    let  el = document.querySelector(".filme-lista");
+    let mo_html = "";
+    let index_filmes=0;
+
+    //Pra cada categoria
+    for (let index = 0; index < lista_categorias.length; index++) { 
+            let categoria = lista_categorias[index];   
+            mo_html += `<section class="categoria"><h4>${categoria}</h4><section class="carrosel">`;
+      
+                //lista de imagem dos filmes
+        for (let i = 0; i < 5; i++) {
+               // <div class="item"><img src="img/peaky_blinders.png" alt=""></div>
+            // mo_html += `<div class="item"><img src="img/small/small_brooklyn99.png" alt=""></div>`
+            mo_html += '<div class="item"><img src="img/small/'+lista_imagens_filmes[index_filmes]+'" alt=""></div>';
+            index_filmes+= 1;
+        }
+        mo_html += '</section></section>'        
+    }
+
+    el.innerHTML = mo_html;
+</script>
+
+
+
+</html>
